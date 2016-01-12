@@ -1,0 +1,14 @@
+doctype
+html
+    include ./includes/head.jade
+    body
+        .wrapper
+            include ./includes/header.jade
+            .middle.width
+                .container
+                    block content
+                block left
+                block right
+        include ./includes/footer.jade
+        block popup
+

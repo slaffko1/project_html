@@ -1,0 +1,127 @@
+=tdn
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+=placeholder 
+    &.placeholder
+        @content
+    &:-moz-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content
+    &::-webkit-input-placeholder
+        @content
+
+=iconbg($w, $h, $bgp)
+    &:before, &>.before{
+        width: $w
+        height: $h
+        margin: -#{$h/2} 0 0 -#{$w/2}
+        background-position: $bgp
+        left: 50%
+        top: 50%
+
+=before($w, $h, $bgp)
+    &:before, &>.before
+        width: $w
+        height: $h
+        margin: -#{$h/2} 0 0 0
+        background-position: $bgp
+        left: 0
+        top: 50%
+
+=before2($w, $h, $l, $t, $bgp)
+    &:before
+        width: $w
+        height: $h
+        background-position: $bgp
+        left:$l
+        top: $t
+
+=gradient($c1, $c2)
+    background-color: $c1
+    $experimental-support-for-svg: true
+    @include background-image(linear-gradient(top,  $c1 0%,$c2 100%))
+    .ielt9 &
+        @include filter-gradient($c1, $c2, vertical)
+
+//asdfast font-family
+=font($alias, $name, $weight:normal, $style:normal)
+    @font-face
+        font-family: $alias
+        src: url($name + ".eot")
+        src: url($name + ".eot?#iefix") format("embedded-opentype"), url($name + ".woff") format("woff"), url($name + ".ttf") format("truetype")
+        font-weight: $weight
+        font-style: $style
+
+
+// Responsive utilities
+
+//
+// More easily include all the states for responsive-utilities.less.
+// [converter] $parent hack
+=responsive-visibility($parent)
+    #{$parent}
+        display: block !important
+        table#{$parent}
+            display: table
+        tr#{$parent}
+            display: table-row !important
+        th#{$parent}, td#{$parent}
+            display: table-cell !important
+
+// [converter] $parent hack
+=responsive-invisibility($parent)
+    #{$parent}
+        display: none !important
+
+=clr
+    &:after
+        content: " "
+        display: table
+        clear: both
+    *zoom: 1
+=box
+    +box-sizing(border-box)
+    
+//triangle
+=arr($width, $height, $bg, $direction)
+    width: 0px
+    height: 0px
+    background: none
+    border-style: solid
+    @if $direction == t
+        border-width: 0 $width / 2 + px $height + px $width / 2 + px
+        border-color: transparent transparent $bg transparent
+    @if $direction == r
+        border-width: $height / 2 + px 0 $height / 2 + px $width + px
+        border-color: transparent transparent transparent $bg
+    @if $direction == b
+        border-width: $height + px $width / 2 + px 0 $width / 2 + px
+        border-color: $bg transparent transparent transparent
+    @if $direction == l
+        border-width: $height / 2 + px $width + px $height / 2 + px 0
+        border-color: transparent $bg transparent transparent
+    @if $direction == tl
+        border-width: $height + px $width + px 0 0
+        border-color: $bg transparent transparent transparent
+    @if $direction == tr
+        border-width: 0 $width + px $height + px 0
+        border-color: transparent $bg transparent transparent
+    @if $direction == br
+        border-width: 0 0 $height + px $width + px
+        border-color: transparent transparent $bg transparent
+    @if $direction == bl
+        border-width: $width + px 0 0 $height + px
+        border-color: transparent transparent transparent $bg
+
+// example
+// +arr(500,50, #000, l)
+// +arr(500,50, #000, bl)
+
+=iphone
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+        @content

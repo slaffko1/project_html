@@ -1,0 +1,132 @@
+.inputbox
+	padding: $input_pad_v $input_pad_h
+	background: $input_bg
+	border: $input_bd_w solid $input_bd_c
+	height: $inputheight
+	line-height: $inputheight - ($input_pad_v + $input_bd_w)*2
+	font-size: $input_fz
+	color: $input_color
+	+box-sizing(border-box)
+	+border-radius(3px)
+	+placeholder
+		opacity: 1
+
+
+select.inputbox
+	padding: 0 0 0 $input_pad_h
+	height: $inputheight
+	
+textarea.inputbox
+	height: auto
+
+$selectBox_hover_bg: #3399ff
+
+.selectBox-dropdown
+	position: relative
+	line-height: 0
+	text-decoration: none
+	text-align: left
+	outline: none
+	vertical-align: middle
+	display: inline-block
+	cursor: pointer
+	+box-sizing(border-box)
+	height: $inputheight
+
+.selectBox-dropdown .selectBox-label
+	display: inline-block
+	white-space: nowrap
+	overflow: hidden
+	line-height: $inputheight - ($input_pad_v+$input_bd_w)*2
+	height: $inputheight - ($input_pad_v+$input_bd_w)*2
+
+.selectBox-dropdown .selectBox-arrow
+	position: absolute
+	top: 0
+	right: 0
+	width: $inputheight - $input_bd_w*2
+	height: $inputheight - $input_bd_w*2
+
+.selectBox-dropdown .selectBox-arrow i
+	+arr(9,5,$input_bd_c, b)
+	position: absolute
+	left: 50%
+	top: 50%
+	margin: -2px 0 0 -4px
+
+.selectBox-dropdown-menu
+	position: absolute
+	z-index: 99999
+	min-height: 1em
+	border: solid 1px $input_bd_c
+	background: $input_bg
+
+.selectBox-inline
+	min-width: 150px
+	outline: none
+	border: solid 1px $input_bd_c
+	background: $input_bg
+	display: inline-block
+	overflow: auto
+
+.selectBox-options,.selectBox-options li,.selectBox-options li a
+	list-style: none
+	display: block
+	cursor: default
+	margin: 0
+	padding: 0
+
+.selectBox-options li a
+	font-size: $input_fz
+	line-height: 1.5
+	display: block
+	white-space: nowrap
+	overflow: hidden
+	padding: 0 $input_pad_h
+	text-decoration: none
+	color: $input_color
+
+.selectBox-options li.selectBox-hover a
+	background-color: $selectBox_hover_bg
+	color: #fff
+
+.selectBox-options li.selectBox-disabled a
+	color: #888
+	background-color: transparent
+
+.selectBox-options li.selectBox-selected a
+	background-color: $selectBox_hover_bg
+	color: #fff
+
+.selectBox-options:hover li.selectBox-selected a
+	background: none
+	color: $input_color
+
+.selectBox-options:hover li.selectBox-selected.selectBox-hover a
+	background-color: $selectBox_hover_bg
+	color: #fff
+
+.button
+	display: inline-block
+	border: none
+	text-decoration: none
+	text-align: center
+	background: $brand
+	color: #fff
+	padding: 0 25px
+	height: 25px
+	line-height: 25px
+	font-size: 12px
+	+border-radius(3px)
+	+box-sizing(border-box)
+
+.form_list
+	margin: 0
+	list-style: none
+	li
+		margin-bottom: 10px
+	label, .input_wrap
+		display: inline-block
+		vertical-align: top
+		line-height: $inputheight
+
