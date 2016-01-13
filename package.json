@@ -1,5 +1,5 @@
 {
-  "name": "template_ak",
+  "name": "",
   "version": "1.0.0",
   "description": "joomla site",
   "main": "gulpfile.js",
@@ -7,5 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "slaffko",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jade": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-sass": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "gulp-watch": "latest",
+    "gulp.spritesmith": "latest",
+    "imagemin-pngquant": "^4.2.0"
+  },
+  "devDependencies": {
+    "gulp-imagemin": "^2.4.0"
+  }
 }
